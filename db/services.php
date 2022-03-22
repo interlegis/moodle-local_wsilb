@@ -28,13 +28,20 @@ $functions = array(
                 'classpath'   => 'local/wsilb/externallib.php',
                 'description' => 'Retorna informações sobre cursos disponíveis para matrícula',
                 'type'        => 'read',
+        ),
+        'local_wsilb_get_pauta' => array(
+                'classname'   => 'local_wsilb_external',
+                'methodname'  => 'get_pauta',
+                'classpath'   => 'local/wsilb/externallib.php',
+                'description' => 'Retorna informações sobre a pauta de um curso',
+                'type'        => 'read',
         )
 );
 
 // We define the services to install as pre-build services. A pre-build service is not editable by administrator.
 $services = array(
         'ILB service' => array(
-                'functions' => array ('local_wsilb_get_available_courses'),
+                'functions' => array ('local_wsilb_get_available_courses', 'local_wsilb_get_pauta'),
                 'restrictedusers' => 0,
                 'enabled'=>1,
         )

@@ -22,11 +22,11 @@
 // 5- Run this script directly from your browser: you should see 'Hello, FIRSTNAME'
 
 /// SETUP - NEED TO BE CHANGED
-$token = 'a4a240864b1f54b4b60240fe92e186ba';
-$domainname = 'http://localhost/moodle';
+$token = '1afd566fe6d11c487d99de025b5e267d';
+$domainname = 'http://172.23.25.175/saberes';
 
 /// FUNCTION NAME
-$functionname = 'local_wsilb_get_available_courses';
+$functionname = 'local_wsilb_get_pauta';
 
 /// PARAMETERS
 $welcomemsg = 'ST';
@@ -36,6 +36,6 @@ header('Content-Type: text/plain');
 $serverurl = $domainname . '/webservice/xmlrpc/server.php'. '?wstoken=' . $token;
 require_once('./curl.php');
 $curl = new curl;
-$post = xmlrpc_encode_request($functionname, array($welcomemsg));
+$post = xmlrpc_encode_request($functionname, array());
 $resp = xmlrpc_decode($curl->post($serverurl, $post));
 print_r($resp);
